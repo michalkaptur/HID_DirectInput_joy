@@ -43,11 +43,23 @@
             this.labelButton2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxRight = new System.Windows.Forms.TextBox();
+            this.textBoxBackward = new System.Windows.Forms.TextBox();
+            this.textBoxStatusBut1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxStatusBut0 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxStatusBut2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxLeft = new System.Windows.Forms.TextBox();
+            this.textBoxForward = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZ)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxLog
@@ -183,17 +195,113 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Osie";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBoxRight);
+            this.groupBox3.Controls.Add(this.textBoxBackward);
+            this.groupBox3.Controls.Add(this.textBoxStatusBut1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.textBoxStatusBut0);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.textBoxStatusBut2);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.textBoxLeft);
+            this.groupBox3.Controls.Add(this.textBoxForward);
+            this.groupBox3.Location = new System.Drawing.Point(369, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(161, 159);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Joy Status";
+            // 
+            // textBoxRight
+            // 
+            this.textBoxRight.Location = new System.Drawing.Point(98, 42);
+            this.textBoxRight.Name = "textBoxRight";
+            this.textBoxRight.Size = new System.Drawing.Size(46, 20);
+            this.textBoxRight.TabIndex = 13;
+            // 
+            // textBoxBackward
+            // 
+            this.textBoxBackward.Location = new System.Drawing.Point(66, 68);
+            this.textBoxBackward.Name = "textBoxBackward";
+            this.textBoxBackward.Size = new System.Drawing.Size(46, 20);
+            this.textBoxBackward.TabIndex = 11;
+            // 
+            // textBoxStatusBut1
+            // 
+            this.textBoxStatusBut1.Location = new System.Drawing.Point(29, 123);
+            this.textBoxStatusBut1.Name = "textBoxStatusBut1";
+            this.textBoxStatusBut1.Size = new System.Drawing.Size(46, 20);
+            this.textBoxStatusBut1.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(84, 130);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "b2";
+            // 
+            // textBoxStatusBut0
+            // 
+            this.textBoxStatusBut0.Location = new System.Drawing.Point(29, 101);
+            this.textBoxStatusBut0.Name = "textBoxStatusBut0";
+            this.textBoxStatusBut0.Size = new System.Drawing.Size(46, 20);
+            this.textBoxStatusBut0.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 130);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "b1";
+            // 
+            // textBoxStatusBut2
+            // 
+            this.textBoxStatusBut2.Location = new System.Drawing.Point(109, 127);
+            this.textBoxStatusBut2.Name = "textBoxStatusBut2";
+            this.textBoxStatusBut2.Size = new System.Drawing.Size(46, 20);
+            this.textBoxStatusBut2.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 104);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "b0";
+            // 
+            // textBoxLeft
+            // 
+            this.textBoxLeft.Location = new System.Drawing.Point(30, 42);
+            this.textBoxLeft.Name = "textBoxLeft";
+            this.textBoxLeft.Size = new System.Drawing.Size(46, 20);
+            this.textBoxLeft.TabIndex = 3;
+            // 
+            // textBoxForward
+            // 
+            this.textBoxForward.Location = new System.Drawing.Point(66, 16);
+            this.textBoxForward.Name = "textBoxForward";
+            this.textBoxForward.Size = new System.Drawing.Size(46, 20);
+            this.textBoxForward.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 262);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonDetectJoy);
             this.Controls.Add(this.listBoxLog);
             this.Name = "Form1";
-            this.Text = "v";
+            this.Text = "HID Joy Controller";
             ((System.ComponentModel.ISupportInitialize)(this.trackBarX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZ)).EndInit();
@@ -201,6 +309,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,6 +331,17 @@
         private System.Windows.Forms.Label labelButton2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBoxRight;
+        private System.Windows.Forms.TextBox textBoxBackward;
+        private System.Windows.Forms.TextBox textBoxStatusBut1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxStatusBut0;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxStatusBut2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxLeft;
+        private System.Windows.Forms.TextBox textBoxForward;
     }
 }
 
