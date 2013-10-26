@@ -99,11 +99,27 @@ namespace HID_DirectInput_joy
                             trackBarZ.Value = state.Value;
                             break;
 
+                        case JoystickOffset.Buttons0:
+                            if (state.Value == 0) labelButton0.ForeColor = Color.Red;
+                            else labelButton0.ForeColor = Color.Green;
+                            break;
+                            
+                        case JoystickOffset.Buttons1:
+                            if (state.Value == 0) labelButton1.ForeColor = Color.Red;
+                            else labelButton1.ForeColor = Color.Green;
+                            break;
+
+                        case JoystickOffset.Buttons2:
+                            if (state.Value == 0) labelButton2.ForeColor = Color.Red;
+                            else labelButton2.ForeColor = Color.Green;
+                            break;
+
                         default:
                             break;
                     }
                 }
             }
+
                 
 
         }
