@@ -24,7 +24,7 @@ namespace HID_DirectInput_joy
         JoystickStatus joyStatus;
 
         int joyResolution = 65535;
-        int joyOffset = 50;
+        int joyOffset = 1000;
 
         private void buttonDetectJoy_Click(object sender, EventArgs e)
         {
@@ -81,37 +81,30 @@ namespace HID_DirectInput_joy
                 {
                     case JoystickOffset.Y:
                         trackBarY.Value = state.Value;
+
+                        //rescaling to bytes
                         if (state.Value > (joyResolution / 2 + joyOffset))
-                        {
                             joyStatus.backward = (byte)(state.Value / (128));
-                            textBoxBackward.Text = joyStatus.backward.ToString();
-                            textBoxForward.Text = "0";
-                        }
-
+                        else joyStatus.backward = 0;
+                        
                         if (state.Value < (joyResolution / 2 - joyOffset))
-                        {
-                            joyStatus.forward = (byte)(255-(state.Value / (128)));
-                            textBoxForward.Text = joyStatus.forward.ToString();
-                            textBoxBackward.Text = "0";
-                        }
-
+                            joyStatus.forward = (byte)(255 - (state.Value / (128)));
+                        else joyStatus.forward = 0;
+                        
                         break;
 
                     case JoystickOffset.X:
                         trackBarX.Value = state.Value;
-                        if (state.Value < (joyResolution / 2 - joyOffset))
-                        {
-                            joyStatus.left = (byte)(255-(state.Value / (128)));
-                            textBoxLeft.Text = joyStatus.left.ToString();
-                            textBoxRight.Text = "0";
-                        }
 
+                        //rescaling to bytes
+                        if (state.Value < (joyResolution / 2 - joyOffset))
+                            joyStatus.left = (byte)(255 - (state.Value / (128)));
+                        else joyStatus.left = 0;
+                        
                         if (state.Value > (joyResolution / 2 + joyOffset))
-                        {
                             joyStatus.right = (byte)(state.Value / (128));
-                            textBoxRight.Text = joyStatus.right.ToString();
-                            textBoxLeft.Text = "0";
-                        }
+                        else joyStatus.right = 0;
+
                         break;
 
                     case JoystickOffset.Z:
@@ -119,23 +112,57 @@ namespace HID_DirectInput_joy
                         break;
 
                     case JoystickOffset.Buttons0:
-                        if (state.Value == 0) labelButton0.ForeColor = Color.Red;
-                        else labelButton0.ForeColor = Color.Green;
+                        if (state.Value == 0)
+                        {
+                            labelButton0.ForeColor = Color.Red;
+                            joyStatus.button0 = 0;
+                        }
+                        else 
+                        {
+                            labelButton0.ForeColor = Color.Green;
+                            joyStatus.button0 = (byte)state.Value;
+                        }
                         break;
 
                     case JoystickOffset.Buttons1:
-                        if (state.Value == 0) labelButton1.ForeColor = Color.Red;
-                        else labelButton1.ForeColor = Color.Green;
+                        if (state.Value == 0)
+                        {
+                            labelButton1.ForeColor = Color.Red;
+                            joyStatus.button1 = 0;
+                        }
+                        else 
+                        {
+                            labelButton1.ForeColor = Color.Green;
+                            joyStatus.button1 = (byte)state.Value;
+                        }
                         break;
 
                     case JoystickOffset.Buttons2:
-                        if (state.Value == 0) labelButton2.ForeColor = Color.Red;
-                        else labelButton2.ForeColor = Color.Green;
+                        if (state.Value == 0)
+                        {
+                            labelButton2.ForeColor = Color.Red;
+                            joyStatus.button2 = 0;
+                        }
+                        else 
+                        {
+                            labelButton2.ForeColor = Color.Green;
+                            joyStatus.button2 = (byte)state.Value;
+                        }
                         break;
 
                     default:
                         break;
                 }
+
+                textBoxStatusBut0.Text = joyStatus.button0.ToString();
+                textBoxStatusBut1.Text = joyStatus.button1.ToString();
+                textBoxStatusBut2.Text = joyStatus.button2.ToString();
+                textBoxLeft.Text = joyStatus.left.ToString();
+                textBoxRight.Text = joyStatus.right.ToString();
+                textBoxForward.Text = joyStatus.forward.ToString();
+                textBoxBackward.Text = joyStatus.backward.ToString();
+
+
             }
         }
     }
