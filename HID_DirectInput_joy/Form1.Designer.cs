@@ -54,6 +54,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxLeft = new System.Windows.Forms.TextBox();
             this.textBoxForward = new System.Windows.Forms.TextBox();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.buttonCOMConnect = new System.Windows.Forms.Button();
+            this.buttonCOMClose = new System.Windows.Forms.Button();
+            this.checkBoxCOMSendData = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZ)).BeginInit();
@@ -72,7 +76,7 @@
             // 
             // buttonDetectJoy
             // 
-            this.buttonDetectJoy.Location = new System.Drawing.Point(18, 25);
+            this.buttonDetectJoy.Location = new System.Drawing.Point(18, 13);
             this.buttonDetectJoy.Name = "buttonDetectJoy";
             this.buttonDetectJoy.Size = new System.Drawing.Size(88, 24);
             this.buttonDetectJoy.TabIndex = 1;
@@ -290,11 +294,50 @@
             this.textBoxForward.Size = new System.Drawing.Size(46, 20);
             this.textBoxForward.TabIndex = 1;
             // 
+            // serialPort1
+            // 
+            this.serialPort1.BaudRate = 19200;
+            this.serialPort1.PortName = "COM14";
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // buttonCOMConnect
+            // 
+            this.buttonCOMConnect.Location = new System.Drawing.Point(18, 112);
+            this.buttonCOMConnect.Name = "buttonCOMConnect";
+            this.buttonCOMConnect.Size = new System.Drawing.Size(85, 24);
+            this.buttonCOMConnect.TabIndex = 20;
+            this.buttonCOMConnect.Text = "Połącz z COM";
+            this.buttonCOMConnect.UseVisualStyleBackColor = true;
+            this.buttonCOMConnect.Click += new System.EventHandler(this.buttonCOMConnect_Click);
+            // 
+            // buttonCOMClose
+            // 
+            this.buttonCOMClose.Location = new System.Drawing.Point(18, 142);
+            this.buttonCOMClose.Name = "buttonCOMClose";
+            this.buttonCOMClose.Size = new System.Drawing.Size(86, 23);
+            this.buttonCOMClose.TabIndex = 21;
+            this.buttonCOMClose.Text = "Rozłącz COM";
+            this.buttonCOMClose.UseVisualStyleBackColor = true;
+            this.buttonCOMClose.Click += new System.EventHandler(this.buttonCOMClose_Click);
+            // 
+            // checkBoxCOMSendData
+            // 
+            this.checkBoxCOMSendData.AutoSize = true;
+            this.checkBoxCOMSendData.Location = new System.Drawing.Point(20, 172);
+            this.checkBoxCOMSendData.Name = "checkBoxCOMSendData";
+            this.checkBoxCOMSendData.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxCOMSendData.TabIndex = 22;
+            this.checkBoxCOMSendData.Text = "Wysyłaj dane na COM";
+            this.checkBoxCOMSendData.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 262);
+            this.Controls.Add(this.checkBoxCOMSendData);
+            this.Controls.Add(this.buttonCOMClose);
+            this.Controls.Add(this.buttonCOMConnect);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -312,6 +355,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -342,6 +386,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxLeft;
         private System.Windows.Forms.TextBox textBoxForward;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button buttonCOMConnect;
+        private System.Windows.Forms.Button buttonCOMClose;
+        private System.Windows.Forms.CheckBox checkBoxCOMSendData;
     }
 }
 

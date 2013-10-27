@@ -24,7 +24,7 @@ namespace HID_DirectInput_joy
         JoystickStatus joyStatus;
 
         int joyResolution = 65535;
-        int joyOffset = 1000;
+        int joyOffset = 5000;
 
         private void buttonDetectJoy_Click(object sender, EventArgs e)
         {
@@ -162,10 +162,66 @@ namespace HID_DirectInput_joy
                 textBoxForward.Text = joyStatus.forward.ToString();
                 textBoxBackward.Text = joyStatus.backward.ToString();
 
+                if (checkBoxCOMSendData.Checked) SendDataToCom();
+
 
             }
         }
+
+        private void buttonCOMConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                serialPort1.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd " + ex);
+                return;
+            }
+            finally
+            {
+                listBoxLog.Items.Insert(0, "Połączyłem z portem szeregowym "+serialPort1.PortName);
+            }
+        }
+
+        private void buttonCOMClose_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                try
+                {
+                    serialPort1.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Błąd " + ex);
+                    return;
+                }
+                finally
+                {
+                    listBoxLog.Items.Insert(0, "Rozłączyłem port szeregowy " + serialPort1.PortName);
+                }
+            }
+            else listBoxLog.Items.Insert(0, "Brak połączenia z portem szeregowym " + serialPort1.PortName);
+        }
+
+        public void SendDataToCom()
+        {
+            string temp = string.Format("{0:x2}{1:x2}{2:x2}{3:x2}{4:x2}{5:x2}{6:x2}",
+                joyStatus.forward, joyStatus.backward, joyStatus.left, joyStatus.right, joyStatus.button0, joyStatus.button1, joyStatus.button2);
+            //serialPort1.WriteLine(temp+"/n");
+            serialPort1.Write(temp + '0' + '0');
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            //listBoxLog.Items.Insert(0, serialPort1.ReadExisting());
+            //MessageBox.Show(serialPort1.ReadExisting());
+        }
     }
+
+    
 
     class JoystickStatus
     {
