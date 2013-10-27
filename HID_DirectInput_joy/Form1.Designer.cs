@@ -137,6 +137,7 @@
             // 
             // timerJoyPolling
             // 
+            this.timerJoyPolling.Interval = 50;
             this.timerJoyPolling.Tick += new System.EventHandler(this.timerJoyPolling_Tick);
             // 
             // labelButton0
